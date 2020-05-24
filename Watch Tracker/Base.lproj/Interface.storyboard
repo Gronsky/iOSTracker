@@ -1,25 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14815" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NBu-mt-KyX">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eBz-kW-OaY">
     <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14770"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14621"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
-        <!--Hosting Controller-->
-        <scene sceneID="RUd-og-cv4">
+        <!--Interface Controller-->
+        <scene sceneID="sPb-GF-L0m">
             <objects>
-                <hostingController id="NBu-mt-KyX" customClass="HostingController" 
-                customModuleProvider="target"/>                
+                <controller fullScreen="YES" id="eBz-kW-OaY" customClass="InterfaceController" customModule="Watch_Tracker_Extension">
+                    <items>
+                        <label width="136" alignment="center" text="Time" textAlignment="center" id="j1o-cf-uh9">
+                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label width="136" alignment="center" text="0:00:00" textAlignment="center" id="4da-Eq-dEW">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label width="136" alignment="center" text="AVG Speed" textAlignment="center" id="qGn-1r-IkM">
+                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label width="136" alignment="center" text="0.0" textAlignment="center" id="wug-xX-nYd">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label width="136" alignment="center" text="Distance" textAlignment="center" id="VWX-ZG-ttX">
+                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label width="136" alignment="center" text="0.0" textAlignment="center" id="kzZ-my-EU9">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label width="136" alignment="center" text="Heart Rate" textAlignment="center" id="IzD-To-e56">
+                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label width="136" alignment="center" text="0" textAlignment="center" id="1Jb-Yr-hns">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <button width="1" alignment="center" title="START" id="xFo-bH-rwr">
+                            <color key="titleColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="17"/>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="avgSpeedLabel" destination="wug-xX-nYd" id="sbu-na-wsO"/>
+                        <outlet property="distanceLabel" destination="kzZ-my-EU9" id="fLP-eX-xf4"/>
+                        <outlet property="heartRateLabel" destination="1Jb-Yr-hns" id="xRN-O4-QjP"/>
+                        <outlet property="startButton" destination="xFo-bH-rwr" id="HXM-tl-xOf"/>
+                        <outlet property="timeLabel" destination="4da-Eq-dEW" id="7z2-DF-e3S"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="187" y="141"/>
+            <point key="canvasLocation" x="429" y="148"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW">
+                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
@@ -30,11 +73,10 @@
             </objects>
             <point key="canvasLocation" x="187" y="462"/>
         </scene>
-        <!--Notification Hosting Controller-->
+        <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController"
-                customModuleProvider="target"/>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Watch_Tracker" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="488" y="462"/>
         </scene>

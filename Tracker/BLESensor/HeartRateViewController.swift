@@ -2,29 +2,30 @@
 //  HeartRateViewController.swift
 //  Tracker
 //
-//  Created by Настенька on 5/15/20.
+//  Created by Gronsky on 5/15/20.
 //  Copyright © 2020 Gronsky. All rights reserved.
 //
 
-import UIKit
-
-class HeartRateViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+//import UIKit
+//
+//class HeartRateViewController: UIViewController {
+//    
+//    var central: BLECentral?
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        central?.onDataUpdated = { [weak self] data in
+//            DispatchQueue.main.async {
+//                self?.update(data)
+//            }
+//        }
+//
+//    }
+//
+//    func update(_ data: Int) {
+//        //heartRateLabel.text = String(data)
+//    }
+//
+//
+//}

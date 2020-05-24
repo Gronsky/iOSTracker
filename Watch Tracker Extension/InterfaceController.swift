@@ -12,6 +12,16 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet weak var timeLabel: WKInterfaceLabel!
+    
+    @IBOutlet weak var avgSpeedLabel: WKInterfaceLabel!
+    
+    @IBOutlet weak var distanceLabel: WKInterfaceLabel!
+    
+    @IBOutlet weak var heartRateLabel: WKInterfaceLabel!
+    
+    @IBOutlet weak var startButton: WKInterfaceButton!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
