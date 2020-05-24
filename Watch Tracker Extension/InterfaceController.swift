@@ -2,13 +2,13 @@
 //  InterfaceController.swift
 //  Watch Tracker Extension
 //
-//  Created by Настенька on 5/23/20.
+//  Created by Gronsky on 5/22/20.
 //  Copyright © 2020 Gronsky. All rights reserved.
 //
 
 import WatchKit
 import Foundation
-
+import CoreLocation
 
 class InterfaceController: WKInterfaceController {
 
@@ -29,13 +29,13 @@ class InterfaceController: WKInterfaceController {
     }
 
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
     }
 
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        
     }
 
 }
