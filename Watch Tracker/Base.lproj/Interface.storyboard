@@ -42,6 +42,9 @@
                         <button width="1" alignment="center" title="START" id="xFo-bH-rwr">
                             <color key="titleColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" type="system" pointSize="17"/>
+                            <connections>
+                                <action selector="StartButtonPressed" destination="eBz-kW-OaY" id="OZN-0O-hBg"/>
+                            </connections>
                         </button>
                     </items>
                     <connections>

@@ -7,26 +7,32 @@
 //
 
 import UIKit
+import HealthKit
 import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-    // for notifications
     let notificationCenter = UNUserNotificationCenter.current()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Notifications
         notificationCenter.delegate = self
-        
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-        
         notificationCenter.requestAuthorization(options: options) {
             (didAllow, error) in
             if !didAllow {
                 print("User has declined notifications")
             }
         }
+        
+        // HealthKit
+        self.requestHealthKitPermission()
+     
+        UINavigationBar.appearance().barTintColor = UIColor.init(red: 42/255.0, green: 45/255.0, blue: 54/255.0, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor.init(red: 115/255.0, green: 253/255.0, blue: 1, alpha: 1)
         
         return true
     }
@@ -44,7 +50,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
     
-    // MARK: extensions
+    
+    // MARK: - HealthKit
+    
+    func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
+        let healthStore = HKHealthStore()
+        healthStore.handleAuthorizationForExtension { (success, error) in
+        }
+    }
+    
+    func requestHealthKitPermission() {
+        let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
+        let healthStore = HKHealthStore()
+        
+        healthStore.requestAuthorization(toShare: sampleType, read: sampleType) { (success, error) in
+            if let error = error {
+                print("Error requesting health kit authorization: \(error)")
+            }
+        }
+    }
+    
+    
+    // MARK: Extensions
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,

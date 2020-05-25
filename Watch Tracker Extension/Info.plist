@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSHealthShareUsageDescription</key>
+    <string>$(PRODUCT_NAME) would like to capture a snap shot of your heart rate for the purpose of using the data in a clinical research study. Please grant this permission to continue participating.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>$(PRODUCT_NAME) would like to update your health usage with heart rate data. Actually we never do anything of the kind but it seems Apple has lost control of X-Code and has few if any answers, so we will ask this permission.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -20,6 +24,12 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Use device location services</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Use device location services</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Use device location services</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>

@@ -20,6 +20,12 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Use device location services</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Use device location services</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Use device location services</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

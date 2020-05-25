@@ -14,34 +14,13 @@ import Alamofire
 class TableViewController: UITableViewController
 {
     var tracks = [Track]()
-    let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-    
-    
-    // MARK: For notifications
-    
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let notificationType = "Local Notification"
-        
-        let alert = UIAlertController(title: "", message: "After 5 sec will appear notification", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.appDelegate?.scheduleNotification(notificationType: notificationType)
-            }
-        
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
+    let url = URL(string: "http://localhost:5000/track")! // "https://jsonplaceholder.typicode.com/posts")!
     
     override func viewDidLoad(){
         super.viewDidLoad()
 
-        getUserInfo()
+        getTrackInfo()
             .done { trks -> Void in
-                print(trks)
                 self.tracks += trks
                 self.tableView.reloadData()
             }
@@ -64,14 +43,13 @@ class TableViewController: UITableViewController
         }
         
         let model = tracks[indexPath.row]
-        
-        cell.title.text = model.title
-        cell.body.text = model.body
+        cell.title.text = String("\(model.id). \(model.name) \(model.date)")
+        cell.body.text = String("Distance: \(model.distance) \nTime: \(model.time) \nDescription: \(model.description)")
         
         return cell
     }
     
-    func getUserInfo() -> Promise<[Track]> {
+    func getTrackInfo() -> Promise<[Track]> {
         return Promise { seal in
             AF.request(url)
             .validate()
@@ -90,13 +68,25 @@ class TableViewController: UITableViewController
             }
         }
     }
-}
-
-struct Track: Codable {
-    let userId: Int
-    let id: Int
-    let title: String
-    let body: String
+    
+    // MARK: For notifications
+    
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let notificationType = "Local Notification"
+        
+        let alert = UIAlertController(title: "", message: "After 5 sec will appear notification", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.appDelegate?.scheduleNotification(notificationType: notificationType)
+            }
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 enum TodoError: LocalizedError {
