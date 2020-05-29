@@ -31,8 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // HealthKit
         self.requestHealthKitPermission()
      
-        UINavigationBar.appearance().barTintColor = UIColor.init(red: 42/255.0, green: 45/255.0, blue: 54/255.0, alpha: 1)
-        UINavigationBar.appearance().tintColor = UIColor.init(red: 115/255.0, green: 253/255.0, blue: 1, alpha: 1)
+        UINavigationBar.appearance().barTintColor =
+            UIColor.init(red: 42/255.0, green: 45/255.0, blue: 54/255.0, alpha: 1)
+        UINavigationBar.appearance().tintColor =
+            UIColor.init(red: 115/255.0, green: 253/255.0, blue: 1, alpha: 1)
         
         return true
     }
@@ -42,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     // MARK: UISceneSession Lifecycle
-
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
@@ -52,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     // MARK: - HealthKit
-    
     func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
         let healthStore = HKHealthStore()
         healthStore.handleAuthorizationForExtension { (success, error) in

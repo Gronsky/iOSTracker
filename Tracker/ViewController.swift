@@ -8,12 +8,15 @@
 
 import UIKit
 import CoreLocation
+import HealthKit
 
 
 class ViewController: UIViewController {
     
     let central = BLECentral()
     let locationManager = CLLocationManager()
+    var routeBuilder = HKWorkoutRouteBuilder(healthStore: HKHealthStore(), device: nil)
+
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
@@ -101,8 +104,10 @@ class ViewController: UIViewController {
     private func getCurrentLocation() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
+            
+            
         }
     }
 }
@@ -114,10 +119,26 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        // update distance
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate
+            else { return }
         currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
         distance = distance + (currentLocation.distance(from: prevLocation))
         prevLocation = currentLocation
+        
+        // Filter the raw data.
+        let filteredLocations = locations.filter { (location: CLLocation) -> Bool in
+            location.horizontalAccuracy <= 50.0
+        }
+        
+        guard !filteredLocations.isEmpty else { return }
+        
+        // Add the filtered data to the route.
+        routeBuilder.insertRouteData(filteredLocations) { (success, error) in
+            if !success {
+                // Handle any errors here.
+            }
+        }
     }
 }
-
+    

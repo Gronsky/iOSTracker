@@ -33,6 +33,7 @@
 		1464933B24642EA40058C8A2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464933A24642EA40058C8A2 /* TableViewController.swift */; };
 		1464933D2464BB7B0058C8A2 /* TrackCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464933C2464BB7B0058C8A2 /* TrackCellTableViewCell.swift */; };
 		14CA194E2478A7F900E23F62 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CA194D2478A7F900E23F62 /* InterfaceController.swift */; };
+		A936FCAE247DB91B0098879C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A936FCAD247DB91B0098879C /* Colors.xcassets */; };
 		A973C5B5247B1A8200D38CE6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A973C5B4247B1A8200D38CE6 /* HealthKit.framework */; };
 		A973C5B7247C195D00D38CE6 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973C5B6247C195D00D38CE6 /* Track.swift */; };
 		EF58C552741CC9C3E98F617D /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB6A2718EAD42E2E7DE3A01 /* Pods_Tracker.framework */; };
@@ -115,6 +116,7 @@
 		2B4879B71047D5ADFB477567 /* Pods_Watch_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB6A2718EAD42E2E7DE3A01 /* Pods_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97938FBFCC5447E286A91D3F /* Pods-Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tracker/Pods-Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		A936FCAD247DB91B0098879C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A973C5B3247B1A8200D38CE6 /* Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tracker.entitlements; sourceTree = "<group>"; };
 		A973C5B4247B1A8200D38CE6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		A973C5B6247C195D00D38CE6 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				143EF294246012CD007753E8 /* LaunchScreen.storyboard */,
 				143EF297246012CD007753E8 /* Info.plist */,
 				1464933C2464BB7B0058C8A2 /* TrackCellTableViewCell.swift */,
+				A936FCAD247DB91B0098879C /* Colors.xcassets */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A936FCAE247DB91B0098879C /* Colors.xcassets in Resources */,
 				143EF296246012CD007753E8 /* LaunchScreen.storyboard in Resources */,
 				143EF291246012C9007753E8 /* Main.storyboard in Resources */,
 				1405C29324788DB90046C3BB /* Assets.xcassets in Resources */,
