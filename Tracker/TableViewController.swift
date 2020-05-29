@@ -43,8 +43,8 @@ class TableViewController: UITableViewController
         }
         
         let model = tracks[indexPath.row]
-        cell.title.text = String("\(model.name) - \(model.sport)")
-        cell.body.text = String("Distance: \(model.distance) \nDescription: \(model.description) \nTime: \(model.time)")
+        cell.title.text = String("\(model.Id). \(model.Name)")
+        cell.body.text = String("Distance: \(model.Distance) \nDescription: \(model.Description)")
         
         return cell
     }

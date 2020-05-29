@@ -9,10 +9,10 @@
 import Foundation
 
 struct Track: Codable {
-    let id: String
-    let name: String
-    let description: String?
-    let sport: String
-    let distance: Double
-    let time: Int
+    let Id: String
+    let Name: String
+    let Description: String?
+    let Sport: String
+    let Distance: Double
+    let Time: Int
 }
