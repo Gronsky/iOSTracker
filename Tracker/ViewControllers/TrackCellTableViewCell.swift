@@ -2,7 +2,7 @@
 //  TrackCellTableViewCell.swift
 //  Tracker
 //
-//  Created by Gronsky on 5/8/20.
+//  Created by Anastasia on 5/8/20.
 //  Copyright © 2020 Gronsky. All rights reserved.
 //
 

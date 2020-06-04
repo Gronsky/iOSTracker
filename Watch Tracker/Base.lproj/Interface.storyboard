@@ -12,44 +12,53 @@
                 <controller fullScreen="YES" id="eBz-kW-OaY" customClass="InterfaceController" customModule="Watch_Tracker_Extension">
                     <items>
                         <label width="136" alignment="center" text="Time" textAlignment="center" id="j1o-cf-uh9">
-                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <label width="136" alignment="center" text="0:00:00" textAlignment="center" id="4da-Eq-dEW">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <label width="136" alignment="center" text="AVG Speed" textAlignment="center" id="qGn-1r-IkM">
-                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <label width="136" alignment="center" text="0.0" textAlignment="center" id="wug-xX-nYd">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <label width="136" alignment="center" text="Distance" textAlignment="center" id="VWX-ZG-ttX">
-                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <label width="136" alignment="center" text="0.0" textAlignment="center" id="kzZ-my-EU9">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <label width="136" alignment="center" text="Heart Rate" textAlignment="center" id="IzD-To-e56">
-                            <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <label width="136" alignment="center" text="0" textAlignment="center" id="1Jb-Yr-hns">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <button width="1" alignment="center" title="START" id="xFo-bH-rwr">
-                            <color key="titleColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.68555113943206802" green="0.40009137911870274" blue="0.97264713048934937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <fontDescription key="font" type="system" pointSize="17"/>
                             <connections>
                                 <action selector="StartButtonPressed" destination="eBz-kW-OaY" id="OZN-0O-hBg"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="center" title="FINISH" id="aeP-84-BUN">
+                            <color key="titleColor" red="0.70246068829999997" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="17"/>
+                            <connections>
+                                <action selector="StartButtonPressed" destination="eBz-kW-OaY" id="Znw-zW-oyZ"/>
+                                <segue destination="Rsa-3D-DHF" kind="push" identifier="finishSegue" id="LHz-9a-nIg"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
                         <outlet property="avgSpeedLabel" destination="wug-xX-nYd" id="sbu-na-wsO"/>
                         <outlet property="distanceLabel" destination="kzZ-my-EU9" id="fLP-eX-xf4"/>
+                        <outlet property="finishButton" destination="aeP-84-BUN" id="wmh-BO-Oo9"/>
                         <outlet property="heartRateLabel" destination="1Jb-Yr-hns" id="xRN-O4-QjP"/>
                         <outlet property="startButton" destination="xFo-bH-rwr" id="HXM-tl-xOf"/>
                         <outlet property="timeLabel" destination="4da-Eq-dEW" id="7z2-DF-e3S"/>
@@ -57,6 +66,24 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="429" y="148"/>
+        </scene>
+        <!--Result Interface Controller-->
+        <scene sceneID="YqQ-Sq-X4Z">
+            <objects>
+                <controller fullScreen="YES" id="Rsa-3D-DHF" customClass="ResultInterfaceController" customModule="Watch_Tracker_Extension">
+                    <items>
+                        <map width="119" height="128" alignment="center" id="uQh-la-QiK"/>
+                        <label width="118" height="88" alignment="center" text="Distance:" textAlignment="left" id="fDn-tQ-cI7">
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="mapView" destination="uQh-la-QiK" id="x5d-Ld-Lsv"/>
+                        <outlet property="resultLabel" destination="fDn-tQ-cI7" id="j9V-OR-tGp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="699" y="131"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -74,14 +101,14 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="187" y="462"/>
+            <point key="canvasLocation" x="398" y="727"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
                 <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Watch_Tracker" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="488" y="462"/>
+            <point key="canvasLocation" x="699" y="727"/>
         </scene>
     </scenes>
 </document>

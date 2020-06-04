@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Track: Codable {
     let Id: String
     let Name: String
+    let Distance: Double
+    let Duration: Int
     let Description: String?
     let Sport: String
-    let Distance: Double
-    let Time: Int
+    let Coordinates: [Coordinate]?
 }

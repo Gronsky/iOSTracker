@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Tracker
 //
-//  Created by Gronsky on 5/4/20.
+//  Created by Anastasia on 5/4/20.
 //  Copyright © 2020 Gronsky. All rights reserved.
 //
 

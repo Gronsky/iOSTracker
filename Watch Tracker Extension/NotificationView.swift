@@ -2,7 +2,7 @@
 //  NotificationView.swift
 //  Watch Tracker Extension
 //
-//  Created by Настенька on 5/17/20.
+//  Created by Anastasia on 5/17/20.
 //  Copyright © 2020 Gronsky. All rights reserved.
 //
 

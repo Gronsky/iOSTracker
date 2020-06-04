@@ -34,6 +34,9 @@
 		1464933D2464BB7B0058C8A2 /* TrackCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464933C2464BB7B0058C8A2 /* TrackCellTableViewCell.swift */; };
 		14CA194E2478A7F900E23F62 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CA194D2478A7F900E23F62 /* InterfaceController.swift */; };
 		A936FCAE247DB91B0098879C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A936FCAD247DB91B0098879C /* Colors.xcassets */; };
+		A936FCB524844F320098879C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936FCB424844F320098879C /* ResultViewController.swift */; };
+		A936FCBA24850A260098879C /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936FCB924850A260098879C /* Coordinate.swift */; };
+		A936FCBE2485358F0098879C /* ResultInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936FCBD2485358F0098879C /* ResultInterfaceController.swift */; };
 		A973C5B5247B1A8200D38CE6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A973C5B4247B1A8200D38CE6 /* HealthKit.framework */; };
 		A973C5B7247C195D00D38CE6 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973C5B6247C195D00D38CE6 /* Track.swift */; };
 		EF58C552741CC9C3E98F617D /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB6A2718EAD42E2E7DE3A01 /* Pods_Tracker.framework */; };
@@ -101,7 +104,7 @@
 		1405C27F2471B0450046C3BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1405C2812471B0450046C3BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1405C2822471B0450046C3BB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		1405C29224788DB90046C3BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		1405C29224788DB90046C3BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		143EF286246012C9007753E8 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		143EF289246012C9007753E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		143EF28B246012C9007753E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +120,9 @@
 		8AB6A2718EAD42E2E7DE3A01 /* Pods_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97938FBFCC5447E286A91D3F /* Pods-Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tracker/Pods-Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		A936FCAD247DB91B0098879C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		A936FCB424844F320098879C /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		A936FCB924850A260098879C /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		A936FCBD2485358F0098879C /* ResultInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultInterfaceController.swift; sourceTree = "<group>"; };
 		A973C5B3247B1A8200D38CE6 /* Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tracker.entitlements; sourceTree = "<group>"; };
 		A973C5B4247B1A8200D38CE6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		A973C5B6247C195D00D38CE6 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				14CA194D2478A7F900E23F62 /* InterfaceController.swift */,
+				A936FCBD2485358F0098879C /* ResultInterfaceController.swift */,
 				1405C2762471B0450046C3BB /* ExtensionDelegate.swift */,
 				1405C2782471B0450046C3BB /* NotificationController.swift */,
 				1405C27A2471B0450046C3BB /* NotificationView.swift */,
@@ -202,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				143EF288246012C9007753E8 /* Tracker */,
+				A973C5B3247B1A8200D38CE6 /* Tracker.entitlements */,
+				143EF297246012CD007753E8 /* Info.plist */,
 				1405C2622471B0430046C3BB /* Watch Tracker */,
 				1405C2712471B0440046C3BB /* Watch Tracker Extension */,
 				143EF287246012C9007753E8 /* Products */,
@@ -223,19 +232,10 @@
 		143EF288246012C9007753E8 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				A973C5B3247B1A8200D38CE6 /* Tracker.entitlements */,
+				A936FCBF24893BAE0098879C /* Delegates */,
 				1405C216246A93580046C3BB /* BLESensor */,
-				143EF289246012C9007753E8 /* AppDelegate.swift */,
-				143EF28B246012C9007753E8 /* SceneDelegate.swift */,
-				1464933A24642EA40058C8A2 /* TableViewController.swift */,
-				A973C5B6247C195D00D38CE6 /* Track.swift */,
-				143EF28D246012C9007753E8 /* ViewController.swift */,
-				143EF28F246012C9007753E8 /* Main.storyboard */,
-				1405C29224788DB90046C3BB /* Assets.xcassets */,
-				143EF294246012CD007753E8 /* LaunchScreen.storyboard */,
-				143EF297246012CD007753E8 /* Info.plist */,
-				1464933C2464BB7B0058C8A2 /* TrackCellTableViewCell.swift */,
-				A936FCAD247DB91B0098879C /* Colors.xcassets */,
+				A936FCB324844E870098879C /* ViewControllers */,
+				A936FCB22483F7DB0098879C /* Storyboards and Assets */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -250,6 +250,39 @@
 				B1BB00022B579A6B13C688D5 /* Pods_Watch_Tracker_Extension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A936FCB22483F7DB0098879C /* Storyboards and Assets */ = {
+			isa = PBXGroup;
+			children = (
+				143EF28F246012C9007753E8 /* Main.storyboard */,
+				143EF294246012CD007753E8 /* LaunchScreen.storyboard */,
+				1405C29224788DB90046C3BB /* Assets.xcassets */,
+				A936FCAD247DB91B0098879C /* Colors.xcassets */,
+			);
+			path = "Storyboards and Assets";
+			sourceTree = "<group>";
+		};
+		A936FCB324844E870098879C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				143EF28D246012C9007753E8 /* ViewController.swift */,
+				A936FCB424844F320098879C /* ResultViewController.swift */,
+				1464933A24642EA40058C8A2 /* TableViewController.swift */,
+				1464933C2464BB7B0058C8A2 /* TrackCellTableViewCell.swift */,
+				A973C5B6247C195D00D38CE6 /* Track.swift */,
+				A936FCB924850A260098879C /* Coordinate.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A936FCBF24893BAE0098879C /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				143EF289246012C9007753E8 /* AppDelegate.swift */,
+				143EF28B246012C9007753E8 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		F238423E7460AB56E5E30D7B /* Pods */ = {
@@ -442,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1405C2792471B0450046C3BB /* NotificationController.swift in Sources */,
+				A936FCBE2485358F0098879C /* ResultInterfaceController.swift in Sources */,
 				14CA194E2478A7F900E23F62 /* InterfaceController.swift in Sources */,
 				1405C2772471B0450046C3BB /* ExtensionDelegate.swift in Sources */,
 				1405C27B2471B0450046C3BB /* NotificationView.swift in Sources */,
@@ -452,12 +486,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A936FCB524844F320098879C /* ResultViewController.swift in Sources */,
 				143EF28E246012C9007753E8 /* ViewController.swift in Sources */,
 				1405C223246ABD710046C3BB /* DiscoveredPeripheralCell.swift in Sources */,
 				1405C218246A9EF80046C3BB /* DiscoveredPeripheral.swift in Sources */,
 				1405C21324699C6F0046C3BB /* BLECentral.swift in Sources */,
 				143EF28A246012C9007753E8 /* AppDelegate.swift in Sources */,
 				1405C227246E9C8C0046C3BB /* HeartRateViewController.swift in Sources */,
+				A936FCBA24850A260098879C /* Coordinate.swift in Sources */,
 				143EF28C246012C9007753E8 /* SceneDelegate.swift in Sources */,
 				1464933D2464BB7B0058C8A2 /* TrackCellTableViewCell.swift in Sources */,
 				1464933B24642EA40058C8A2 /* TableViewController.swift in Sources */,

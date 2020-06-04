@@ -2,13 +2,14 @@
 //  InterfaceController.swift
 //  Watch Tracker Extension
 //
-//  Created by Gronsky on 5/22/20.
+//  Created by Anastasia on 5/22/20.
 //  Copyright © 2020 Gronsky. All rights reserved.
 //
 
 import WatchKit
 import Foundation
 import CoreLocation
+import MapKit
 import HealthKit
 
 class InterfaceController: WKInterfaceController {
@@ -20,6 +21,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var distanceLabel: WKInterfaceLabel!
     @IBOutlet weak var heartRateLabel: WKInterfaceLabel!
     @IBOutlet weak var startButton: WKInterfaceButton!
+    @IBOutlet weak var finishButton: WKInterfaceButton!
     
     // healthKit properties
     var healthStore: HKHealthStore?
@@ -34,10 +36,13 @@ class InterfaceController: WKInterfaceController {
        
     var prevLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
     var currentLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
+    var locationList: [CLLocation] = []
     var distance: CLLocationDistance = 0.0
        
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        finishButton.setHidden(true)
         
         let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
         
@@ -60,6 +65,14 @@ class InterfaceController: WKInterfaceController {
 
     override func didDeactivate() {
         super.didDeactivate()
+    }
+    
+    override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
+        if segueIdentifier == "finishSegue" {
+            return self.locationList
+        } else {
+            return nil
+        }
     }
     
     
@@ -101,6 +114,7 @@ class InterfaceController: WKInterfaceController {
     @IBAction func StartButtonPressed() {
             if(isPlaying == false)
             {
+                finishButton.setHidden(true)
                 isPlaying = true
                 startButton.setTitle("STOP")
                 initialTime = Int64(NSDate().timeIntervalSince1970)
@@ -117,6 +131,7 @@ class InterfaceController: WKInterfaceController {
             }
             else
             {
+                finishButton.setHidden(false)
                 timePastInSeconds = currentTimeInSeconds
                 isPlaying = false
                 startButton.setTitle("RESUME")
@@ -125,11 +140,34 @@ class InterfaceController: WKInterfaceController {
         }
     
     
+    @IBAction func finishButtonPressed() {
+        startButton.setTitle("START")
+        finishButton.setHidden(true)
+        
+        initialTime = 0
+        timePastInSeconds = 0
+        //durationInSeconds = 0
+        isPlaying = false
+        timer.invalidate()
+        
+        //distance = 0.0
+        UpdateLabels(seconds: currentTimeInSeconds, distance: distance)
+        
+        // TODO: loc coord update
+     
+    }
+    
     // MARK: Timer
     
     @objc private func UpdateTimer() {
         getCurrentLocation()
         currentTimeInSeconds = Int64(NSDate().timeIntervalSince1970) + timePastInSeconds - initialTime;
+        
+        UpdateLabels(seconds: currentTimeInSeconds, distance: distance)
+    }
+    
+    private func UpdateLabels(seconds: Int64, distance: Double)
+    {
         let time = secondsToHoursMinutesSeconds(seconds: currentTimeInSeconds)
         timeLabel.setText(time)
         distanceLabel.setText(String(format: "%.1f", distance / 1000))
@@ -153,7 +191,6 @@ class InterfaceController: WKInterfaceController {
             locationManager.startUpdatingLocation()
         }
     }
-
 }
 
 
@@ -166,6 +203,7 @@ extension InterfaceController: CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("latitude = \(locValue.latitude), longitude = \(locValue.longitude)")
         currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+         locationList.append(currentLocation)
         distance = distance + (currentLocation.distance(from: prevLocation))
         prevLocation = currentLocation
     }

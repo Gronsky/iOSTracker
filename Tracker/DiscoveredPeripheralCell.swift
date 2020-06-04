@@ -2,7 +2,7 @@
 //  DiscoveredPeripheralCell.swift
 //  Tracker
 //
-//  Created by Настенька on 5/12/20.
+//  Created by Anastasia on 5/12/20.
 //  Copyright © 2020 Gronsky. All rights reserved.
 //
 

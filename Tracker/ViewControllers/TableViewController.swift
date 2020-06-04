@@ -2,7 +2,7 @@
 //  TableViewController.swift
 //  Tracker
 //
-//  Created by Gronsky on 5/7/20.
+//  Created by Anastasia on 5/7/20.
 //  Copyright © 2020 Gronsky. All rights reserved.
 //
 
