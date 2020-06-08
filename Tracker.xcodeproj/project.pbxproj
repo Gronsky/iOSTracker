@@ -234,6 +234,7 @@
 			children = (
 				A936FCBF24893BAE0098879C /* Delegates */,
 				1405C216246A93580046C3BB /* BLESensor */,
+				A936FCC1248EF7370098879C /* Models */,
 				A936FCB324844E870098879C /* ViewControllers */,
 				A936FCB22483F7DB0098879C /* Storyboards and Assets */,
 			);
@@ -268,8 +269,6 @@
 			children = (
 				143EF28D246012C9007753E8 /* ViewController.swift */,
 				A936FCB424844F320098879C /* ResultViewController.swift */,
-				A973C5B6247C195D00D38CE6 /* Track.swift */,
-				A936FCB924850A260098879C /* Coordinate.swift */,
 				1464933A24642EA40058C8A2 /* TableViewController.swift */,
 				1464933C2464BB7B0058C8A2 /* TrackCellTableViewCell.swift */,
 			);
@@ -283,6 +282,15 @@
 				143EF28B246012C9007753E8 /* SceneDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		A936FCC1248EF7370098879C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A973C5B6247C195D00D38CE6 /* Track.swift */,
+				A936FCB924850A260098879C /* Coordinate.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F238423E7460AB56E5E30D7B /* Pods */ = {

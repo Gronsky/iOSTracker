@@ -13,7 +13,11 @@ import MapKit
 class ResultInterfaceController: WKInterfaceController {
     
     @IBOutlet weak var mapView: WKInterfaceMap!
-    @IBOutlet weak var resultLabel: WKInterfaceLabel!
+    @IBOutlet weak var distanceLabel: WKInterfaceLabel!
+    @IBOutlet weak var durationLabel: WKInterfaceLabel!
+    
+    @IBOutlet weak var dateLabel: WKInterfaceLabel!
+    
     
     var locationList: [CLLocation] = []
     var distance: Double = 0.0
@@ -23,14 +27,19 @@ class ResultInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        if let val: [CLLocation] = context as? [CLLocation]  {
-            locationList = val
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        
+        if let (locations, timeInSeconds, distance) = context as? ([CLLocation], Int64, CLLocationDistance)  {
+            self.locationList = locations
+            self.duration = secondsToHoursMinutesSeconds(seconds: timeInSeconds)
+            self.distance = distance
         }
         
         loadMap()
+        loadLabels()
     }
     
-    private func mapRegion() -> MKCoordinateRegion? {
+    private func mapRegion() -> MKCoordinateRegion? {dateFormatter.string(from: Date())
           guard
             locationList.count > 0
           else { return nil }
@@ -69,5 +78,18 @@ class ResultInterfaceController: WKInterfaceController {
             let finishCoordinate = CLLocationCoordinate2DMake((locationList.last?.coordinate.latitude)!, (locationList.last?.coordinate.longitude)!)
             mapView.setRegion(region)
             mapView.addAnnotation(finishCoordinate, with: .red)
+        }
+    
+        private func loadLabels() {
+            durationLabel.setText(duration)
+            dateLabel.setText("Date: \(dateFormatter.string(from: Date()))")
+            distanceLabel.setText("Distance: \(String(format: "%.1f", distance / 1000)) km")
+        }
+    
+        private func secondsToHoursMinutesSeconds (seconds : Int64) -> String {
+            let _hours = seconds / 3600
+            let _minutes = (seconds % 3600) / 60
+            let _seconds = (seconds % 3600) % 60
+            return String("\(_hours):\(_minutes):\(_seconds)")
         }
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eBz-kW-OaY">
-    <device id="watch38"/>
+    <device id="watch40"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
@@ -43,14 +43,14 @@
                             <color key="titleColor" red="0.68555113943206802" green="0.40009137911870274" blue="0.97264713048934937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <fontDescription key="font" type="system" pointSize="17"/>
                             <connections>
-                                <action selector="StartButtonPressed" destination="eBz-kW-OaY" id="OZN-0O-hBg"/>
+                                <action selector="startButtonPressed" destination="eBz-kW-OaY" id="OZN-0O-hBg"/>
                             </connections>
                         </button>
                         <button width="1" alignment="center" title="FINISH" id="aeP-84-BUN">
                             <color key="titleColor" red="0.70246068829999997" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" type="system" pointSize="17"/>
                             <connections>
-                                <action selector="StartButtonPressed" destination="eBz-kW-OaY" id="Znw-zW-oyZ"/>
+                                <action selector="startButtonPressed" destination="eBz-kW-OaY" id="Znw-zW-oyZ"/>
                                 <segue destination="Rsa-3D-DHF" kind="push" identifier="finishSegue" id="LHz-9a-nIg"/>
                             </connections>
                         </button>
@@ -72,18 +72,29 @@
             <objects>
                 <controller fullScreen="YES" id="Rsa-3D-DHF" customClass="ResultInterfaceController" customModule="Watch_Tracker_Extension">
                     <items>
-                        <map width="119" height="128" alignment="center" id="uQh-la-QiK"/>
-                        <label width="118" height="88" alignment="center" text="Distance:" textAlignment="left" id="fDn-tQ-cI7">
+                        <map width="136" height="103" alignment="center" id="uQh-la-QiK"/>
+                        <label width="136" height="19" alignment="center" text=" 0:00:03" textAlignment="center" numberOfLines="4" id="wct-cM-D8w">
+                            <color key="textColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label width="136" height="22" alignment="center" text="Date: 10.01.2019" textAlignment="left" numberOfLines="4" id="kKC-M5-isb">
                             <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label width="136" height="24" alignment="center" text="Distance: 10 km" textAlignment="left" numberOfLines="4" id="fDn-tQ-cI7">
+                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                     </items>
                     <connections>
+                        <outlet property="dateLabel" destination="kKC-M5-isb" id="rzI-Qf-Y79"/>
+                        <outlet property="distanceLabel" destination="fDn-tQ-cI7" id="j9V-OR-tGp"/>
+                        <outlet property="durationLabel" destination="wct-cM-D8w" id="Q4T-fn-H3n"/>
                         <outlet property="mapView" destination="uQh-la-QiK" id="x5d-Ld-Lsv"/>
-                        <outlet property="resultLabel" destination="fDn-tQ-cI7" id="j9V-OR-tGp"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="699" y="131"/>
+            <point key="canvasLocation" x="699" y="111"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

@@ -18,15 +18,10 @@ class TableViewController: UITableViewController
     
     override func viewDidLoad(){
         super.viewDidLoad()
-
-        getTrackInfo()
-            .done { trks -> Void in
-                self.tracks += trks
-                self.tableView.reloadData()
-            }
-            .catch { error in
-                print(error.localizedDescription)
-            }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        RefreshData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +41,20 @@ class TableViewController: UITableViewController
         return cell
     }
     
-    func getTrackInfo() -> Promise<[Track]> {
+    private func RefreshData() {
+        self.tracks.removeAll()
+        
+        getTrackInfo()
+        .done { trks -> Void in
+            self.tracks += trks
+            self.tableView.reloadData()
+        }
+        .catch { error in
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func getTrackInfo() -> Promise<[Track]> {
         return Promise { seal in
             AF.request(url)
             .validate()

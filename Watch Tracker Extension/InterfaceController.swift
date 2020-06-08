@@ -28,11 +28,12 @@ class InterfaceController: WKInterfaceController {
     var lastHeartRate = 0.0
     let beatCountPerMinute = HKUnit(from: "count/min")
     
-    var initialTime:Int64 = 0
-    var timePastInSeconds:Int64 = 0
-    var currentTimeInSeconds:Int64 = 0
+    var initialTime: Int64 = 0
+    var timePastInSeconds: Int64 = 0
+    var currentTimeInSeconds: Int64 = 0
     var timer = Timer()
     var isPlaying = false
+    var time: String = "0:00:00"
        
     var prevLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
     var currentLocation: CLLocation = CLLocation(latitude: 0, longitude: 0)
@@ -69,11 +70,13 @@ class InterfaceController: WKInterfaceController {
     
     override func contextForSegue(withIdentifier segueIdentifier: String) -> Any? {
         if segueIdentifier == "finishSegue" {
-            return self.locationList
+            return (self.locationList, currentTimeInSeconds, distance)
         } else {
             return nil
         }
     }
+    
+
     
     
     // HealthKit
@@ -111,7 +114,7 @@ class InterfaceController: WKInterfaceController {
     }
        
     
-    @IBAction func StartButtonPressed() {
+    @IBAction func startButtonPressed() {
             if(isPlaying == false)
             {
                 finishButton.setHidden(true)
@@ -121,7 +124,7 @@ class InterfaceController: WKInterfaceController {
                 timer = Timer.scheduledTimer(
                     timeInterval: 1,
                     target: self,
-                    selector: #selector(UpdateTimer),
+                    selector: #selector(updateTimer),
                     userInfo: nil,
                     repeats: true)
                 
@@ -141,34 +144,21 @@ class InterfaceController: WKInterfaceController {
     
     
     @IBAction func finishButtonPressed() {
-        startButton.setTitle("START")
-        finishButton.setHidden(true)
-        
-        initialTime = 0
-        timePastInSeconds = 0
-        //durationInSeconds = 0
-        isPlaying = false
         timer.invalidate()
-        
-        //distance = 0.0
-        UpdateLabels(seconds: currentTimeInSeconds, distance: distance)
-        
-        // TODO: loc coord update
-     
     }
     
     // MARK: Timer
     
-    @objc private func UpdateTimer() {
+    @objc private func updateTimer() {
         getCurrentLocation()
         currentTimeInSeconds = Int64(NSDate().timeIntervalSince1970) + timePastInSeconds - initialTime;
         
-        UpdateLabels(seconds: currentTimeInSeconds, distance: distance)
+        updateLabels(seconds: currentTimeInSeconds, distance: distance)
     }
     
-    private func UpdateLabels(seconds: Int64, distance: Double)
+    private func updateLabels(seconds: Int64, distance: Double)
     {
-        let time = secondsToHoursMinutesSeconds(seconds: currentTimeInSeconds)
+        time = secondsToHoursMinutesSeconds(seconds: currentTimeInSeconds)
         timeLabel.setText(time)
         distanceLabel.setText(String(format: "%.1f", distance / 1000))
         avgSpeedLabel.setText(String(format: "%.1f", distance * 5 / (Double(currentTimeInSeconds) * 18)))

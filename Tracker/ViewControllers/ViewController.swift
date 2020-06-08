@@ -62,7 +62,7 @@ class ViewController: UIViewController {
             let controller = segue.destination as! ResultViewController
             controller.locationList = locationList
             controller.distance = distance
-            controller.duration = secondsToHoursMinutesSeconds(seconds: durationInSeconds)
+            controller.duration = durationInSeconds
         }
     }
     
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         heartRateLabel.text = String(value)
     }
 
-    @IBAction func StartButtonPressed(_ sender: UIButton) {
+    @IBAction func startButtonPressed(_ sender: UIButton) {
         if(isPlaying == false)
         {  // start or resume
             finishButton.isHidden = true
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
             timer = Timer.scheduledTimer(
                 timeInterval: 1,
                 target: self,
-                selector: #selector(UpdateTimer),
+                selector: #selector(updateTimer),
                 userInfo: nil,
                 repeats: true)
             
@@ -100,29 +100,20 @@ class ViewController: UIViewController {
     
     @IBAction func finishButtonPressed(_ sender: UIButton) {
         timer.invalidate()
-        
-       // startButton.setTitle("START", for: .normal)
-        //initialTime = 0
-        //timePastInSeconds = 0
-        //durationInSeconds = 0
-        //distance = 0.0
-        //UpdateLabels(seconds: 0, distance: 0.0)
-        
-        // TODO: loc coord update
     }
     
     
     
-// MARK: Private funcs
+    // MARK: Private funcs
     
-    @objc private func UpdateTimer() {
+    @objc private func updateTimer() {
         getCurrentLocation()
         durationInSeconds = Int64(NSDate().timeIntervalSince1970) + timePastInSeconds - initialTime;
         
-        UpdateLabels(seconds: durationInSeconds, distance: distance)
+        updateLabels(seconds: durationInSeconds, distance: distance)
     }
     
-    private func UpdateLabels(seconds: Int64, distance: Double) {
+    private func updateLabels(seconds: Int64, distance: Double) {
         timeLabel.text = secondsToHoursMinutesSeconds(seconds: seconds)
         distanceLabel.text = String(format: "%.1f", distance / 1000)
         
