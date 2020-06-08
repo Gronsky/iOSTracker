@@ -72,7 +72,7 @@ class ViewController: UIViewController {
 
     @IBAction func StartButtonPressed(_ sender: UIButton) {
         if(isPlaying == false)
-        {
+        {  // start or resume
             finishButton.isHidden = true
             startButton.setTitle("STOP", for: .normal)
             isPlaying = true
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
             
         }
         else
-        {
+        {   // stop
             finishButton.isHidden = false
             timePastInSeconds = durationInSeconds
             startButton.setTitle("RESUME", for: .normal)
@@ -99,20 +99,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func finishButtonPressed(_ sender: UIButton) {
-        startButton.setTitle("START", for: .normal)
-        finishButton.isHidden = true
-        
-        initialTime = 0
-        timePastInSeconds = 0
-        //durationInSeconds = 0
-        isPlaying = false
         timer.invalidate()
         
+       // startButton.setTitle("START", for: .normal)
+        //initialTime = 0
+        //timePastInSeconds = 0
+        //durationInSeconds = 0
         //distance = 0.0
-        UpdateLabels(seconds: 0, distance: 0.0)
+        //UpdateLabels(seconds: 0, distance: 0.0)
         
         // TODO: loc coord update
-     
     }
     
     

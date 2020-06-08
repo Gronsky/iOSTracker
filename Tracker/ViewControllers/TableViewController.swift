@@ -29,10 +29,6 @@ class TableViewController: UITableViewController
             }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tracks.count
     }
@@ -43,8 +39,9 @@ class TableViewController: UITableViewController
         }
         
         let model = tracks[indexPath.row]
-        cell.title.text = String("\(model.Id). \(model.Name)")
-        cell.body.text = String("Distance: \(model.Distance) \nDescription: \(model.Description)")
+        let description = model.Description ?? ""
+        cell.title.text = String("\(model.Date) - \(model.Name)")
+        cell.body.text = String("Duration: \(secondsToHoursMinutesSeconds(seconds: model.Duration)) \nDistance: \(model.Distance) \nDescription: \(description)")
         
         return cell
     }
@@ -67,6 +64,13 @@ class TableViewController: UITableViewController
                 
             }
         }
+    }
+    
+    private func secondsToHoursMinutesSeconds (seconds: Int64) -> String {
+        let _hours = seconds / 3600
+        let _minutes = (seconds % 3600) / 60
+        let _seconds = (seconds % 3600) % 60
+        return String("\(_hours):\(_minutes):\(_seconds)")
     }
     
     // MARK: For notifications

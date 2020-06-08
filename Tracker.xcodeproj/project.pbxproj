@@ -268,10 +268,10 @@
 			children = (
 				143EF28D246012C9007753E8 /* ViewController.swift */,
 				A936FCB424844F320098879C /* ResultViewController.swift */,
-				1464933A24642EA40058C8A2 /* TableViewController.swift */,
-				1464933C2464BB7B0058C8A2 /* TrackCellTableViewCell.swift */,
 				A973C5B6247C195D00D38CE6 /* Track.swift */,
 				A936FCB924850A260098879C /* Coordinate.swift */,
+				1464933A24642EA40058C8A2 /* TableViewController.swift */,
+				1464933C2464BB7B0058C8A2 /* TrackCellTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

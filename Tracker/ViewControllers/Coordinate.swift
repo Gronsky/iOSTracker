@@ -10,8 +10,8 @@ import Foundation
 import CoreLocation
 
 struct Coordinate: Codable {
-    let Latitude: Double
-    let Longitude: Double
+    var Latitude: Double
+    var Longitude: Double
 
     func locationCoordinate() -> CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: self.Latitude,

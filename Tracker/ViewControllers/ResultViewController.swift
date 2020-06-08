@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Alamofire
 
 class ResultViewController: UIViewController {
     
@@ -16,18 +17,24 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    let encoder = JSONEncoder()
+    let decoder = JSONDecoder()
+    let url = URL(string: "http://localhost:5000/track")!
+    
     var locationList: [CLLocation] = []
     var distance: Double = 0.0
     var duration: String?
     let dateFormatter = DateFormatter()
+    var date: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        distanceLabel.text = "Distance: \(String(format: "%.1f", distance / 1000)) km"
+        distanceLabel.text = "\(String(format: "%.1f", distance / 1000)) km"
         timeLabel.text = duration
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        dateLabel.text = "Date: \(dateFormatter.string(from: Date()))"
+        date = dateFormatter.string(from: Date())
+        dateLabel.text = date
         
         loadMap()
     }
@@ -91,7 +98,29 @@ class ResultViewController: UIViewController {
     }
     
     
-    
+    private func SaveActivity() {
+        do {
+            var track = try Track(from: decoder as! Decoder)
+            track.Name = "TrackName"
+            track.Date = date
+            track.Duration = 123
+            track.Distance = 23
+            track.Description = "TrackDescription"
+            track.Sport = "Ride"
+            
+//            for location in locationList {
+//                var coordinate = try Coordinate(from: decoder as! Decoder)
+//                coordinate.Latitude = location.coordinate.latitude
+//                coordinate.Longitude = location.coordinate.longitude
+//                track.Coordinates?.append(coordinate)
+//            }
+            
+            AF.request(url, method: .post, parameters: track)
+        }
+        catch {
+            print(error)
+        }
+    }
 }
 
 
